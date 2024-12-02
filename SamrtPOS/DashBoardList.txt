@@ -1,0 +1,10 @@
+Sales
+Customer
+Invoice
+Supplier
+Product
+GRN
+Return's
+Account
+User's
+Report

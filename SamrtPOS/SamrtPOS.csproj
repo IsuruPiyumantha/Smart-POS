@@ -1,0 +1,1280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DAFBE4F3-B1A7-4D44-826F-2D4DB15D95C5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartPOS</RootNamespace>
+    <AssemblyName>SmartPOS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="MySql.Data, Version=6.1.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompanyRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanyRegistration.Designer.cs">
+      <DependentUpon>CompanyRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\DataBaseManagementClass.cs" />
+    <Compile Include="DataBaseInstaller\DataBaseConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBaseInstaller\DataBaseConfigForm.Designer.cs" />
+    <Compile Include="DataBaseInstaller\FirstForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBaseInstaller\FirstForm.Designer.cs" />
+    <Compile Include="DataBaseInstaller\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBaseInstaller\Form1.Designer.cs" />
+    <Compile Include="DataBaseInstaller\ImportDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBaseInstaller\ImportDataBase.Designer.cs" />
+    <Compile Include="DataBaseInstaller\PasswordChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBaseInstaller\PasswordChange.Designer.cs" />
+    <Compile Include="Forms\AccountForms\ChequesControler.cs" />
+    <Compile Include="Forms\AccountForms\Cheques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccountForms\Cheques.Designer.cs">
+      <DependentUpon>Cheques.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountForms\CashBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccountForms\CashBook.Designer.cs">
+      <DependentUpon>CashBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountForms\CashBookControler.cs" />
+    <Compile Include="Forms\AccountForms\CashInOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccountForms\CashInOut.Designer.cs">
+      <DependentUpon>CashInOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountForms\Accounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccountForms\Accounts.Designer.cs">
+      <DependentUpon>Accounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BarCodeForms\BarCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BarCodeForms\BarCode.Designer.cs">
+      <DependentUpon>BarCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BarCodeForms\BarCode3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarCode3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\BarCodeForms\BarCodeDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarCodeDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportFrom\ReportControler.cs" />
+    <Compile Include="Forms\ReportFrom\StockReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportFrom\StockReport.Designer.cs">
+      <DependentUpon>StockReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportFrom\SummaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportFrom\SummaryReport.Designer.cs">
+      <DependentUpon>SummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportFrom\Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportFrom\Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\CardBill.cs">
+      <DependentUpon>CardBill.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Forms\Returns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Returns.Designer.cs">
+      <DependentUpon>Returns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\SearchCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\SearchCustomer.Designer.cs">
+      <DependentUpon>SearchCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GRNDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GRNDetails.Designer.cs">
+      <DependentUpon>GRNDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\AddCustomerCredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\AddCustomerCredit.Designer.cs">
+      <DependentUpon>AddCustomerCredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\AddCustomerDebit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\AddCustomerDebit.Designer.cs">
+      <DependentUpon>AddCustomerDebit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\CustomerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\CustomerInfo.Designer.cs">
+      <DependentUpon>CustomerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GRNForms\AddNewGRN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GRNForms\AddNewGRN.Designer.cs">
+      <DependentUpon>AddNewGRN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GRNForms\GRNControler.cs" />
+    <Compile Include="Forms\GRNForms\GRNDetailsInfo.cs" />
+    <Compile Include="Forms\GRNForms\GRNinfo.cs" />
+    <Compile Include="Forms\InvoiceForms\InvoiceOverviewSinhala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InvoiceForms\InvoiceOverviewSinhala.Designer.cs">
+      <DependentUpon>InvoiceOverviewSinhala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\CardinvoiceSinhala.cs">
+      <DependentUpon>CardinvoiceSinhala.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\PrinterInfo.cs" />
+    <Compile Include="Forms\SettingsForms\PrinterSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\PrinterSettings.Designer.cs">
+      <DependentUpon>PrinterSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\PrintigSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\PrintigSettings.Designer.cs">
+      <DependentUpon>PrintigSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\Colors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\Colors.Designer.cs">
+      <DependentUpon>Colors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\Networking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\Networking.Designer.cs">
+      <DependentUpon>Networking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\Password.Designer.cs">
+      <DependentUpon>Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\ClearData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\ClearData.Designer.cs">
+      <DependentUpon>ClearData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\CompanyDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\CompanyDetails.Designer.cs">
+      <DependentUpon>CompanyDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\PrintigSetting\BillMargingInfo.cs" />
+    <Compile Include="Forms\SettingsForms\PrintigSetting\BillPrintingControler.cs" />
+    <Compile Include="Forms\SettingsForms\PrintigSetting\TableBillSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\PrintigSetting\TableBillSetting.Designer.cs">
+      <DependentUpon>TableBillSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\PrintigSetting\BillSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\PrintigSetting\BillSetting.Designer.cs">
+      <DependentUpon>BillSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\SystemAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\SystemAction.Designer.cs">
+      <DependentUpon>SystemAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\RoleMgt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\RoleMgt.Designer.cs">
+      <DependentUpon>RoleMgt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\ScaleExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\ScaleExport.Designer.cs">
+      <DependentUpon>ScaleExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\CardPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\CardPay.Designer.cs">
+      <DependentUpon>CardPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\CardBill.cs">
+      <DependentUpon>CardBill.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\CashBill.cs">
+      <DependentUpon>CashBill.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\CashPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\CashPay.Designer.cs">
+      <DependentUpon>CashPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\EditSupperMarketProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\EditSupperMarketProduct.Designer.cs">
+      <DependentUpon>EditSupperMarketProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\AddNewSupperMarketProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\AddNewSupperMarketProduct.Designer.cs">
+      <DependentUpon>AddNewSupperMarketProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\ItemSalesDS.Designer.cs">
+      <DependentUpon>ItemSalesDS.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Forms\SupperMarketForms\SupperMarketProductInfo.cs" />
+    <Compile Include="Forms\SupperMarketForms\SupperMarketProductControler.cs" />
+    <Compile Include="Forms\SuppliersForms\AddSupplierDebit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\AddSupplierDebit.Designer.cs">
+      <DependentUpon>AddSupplierDebit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\AddSupplierCredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\AddSupplierCredit.Designer.cs">
+      <DependentUpon>AddSupplierCredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\SuppliersInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\SuppliersInfo.Designer.cs">
+      <DependentUpon>SuppliersInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Temp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Temp.Designer.cs">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\Chages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForms\Chages.Designer.cs">
+      <DependentUpon>Chages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\AddNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\AddNewUser.Designer.cs">
+      <DependentUpon>AddNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserDetailsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserDetailsList.Designer.cs">
+      <DependentUpon>UserDetailsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserControler.cs" />
+    <Compile Include="serialKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serialKey.Designer.cs">
+      <DependentUpon>serialKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\CardPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\CardPayment.Designer.cs">
+      <DependentUpon>CardPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InvoiceBillDetails.cs" />
+    <Compile Include="Forms\InvoiceForms\InvoiceControler.cs" />
+    <Compile Include="Forms\InvoiceForms\InvoiceOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InvoiceForms\InvoiceOverview.Designer.cs">
+      <DependentUpon>InvoiceOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\ItemSalesDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemSalesDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\CashBill.cs">
+      <DependentUpon>CashBill.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\TableBill.cs">
+      <DependentUpon>TableBill.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\KOTbill.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KOTbill.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\KOTdb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KOTdb.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\KOT_PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\KOT_PrintForm.Designer.cs">
+      <DependentUpon>KOT_PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserInfo.cs" />
+    <Compile Include="CompanyProfile.cs" />
+    <Compile Include="Controler\BaseControler.cs" />
+    <Compile Include="Controler\CommonFuntion.cs" />
+    <Compile Include="Controler\ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controler\ErrorForm.Designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\GridColourClass.cs" />
+    <Compile Include="Controler\ServerConfigureInfo.cs" />
+    <Compile Include="Controler\TbaleManagerControler.cs" />
+    <Compile Include="DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllTableInfo.cs" />
+    <Compile Include="Forms\RestaurantForms\CashPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\CashPayment.Designer.cs">
+      <DependentUpon>CashPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CrystalReportViewPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CrystalReportViewPage.Designer.cs">
+      <DependentUpon>CrystalReportViewPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerDetails.Designer.cs">
+      <DependentUpon>CustomerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\EditCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\EditCustomer.Designer.cs">
+      <DependentUpon>EditCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\AddNewCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\AddNewCustomer.Designer.cs">
+      <DependentUpon>AddNewCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForms\CustomerControler.cs" />
+    <Compile Include="Forms\CustomerForms\CustomerDetailsInfo.cs" />
+    <Compile Include="Forms\InvoiceDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InvoiceDetails.Designer.cs">
+      <DependentUpon>InvoiceDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InvoiceInfo.cs" />
+    <Compile Include="Forms\ItemsForms\CategoryInfo.cs" />
+    <Compile Include="Forms\ItemsForms\EditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ItemsForms\EditCategory.Designer.cs">
+      <DependentUpon>EditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ItemsForms\AddNewCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ItemsForms\AddNewCategory.Designer.cs">
+      <DependentUpon>AddNewCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ItemsForms\CategoryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ItemsForms\CategoryList.Designer.cs">
+      <DependentUpon>CategoryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ItemsForms\ItemsCategoryControls.cs" />
+    <Compile Include="Forms\KeyBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KeyBoard.Designer.cs">
+      <DependentUpon>KeyBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportView.Designer.cs">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\EditRestaurantProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\EditRestaurantProduct.Designer.cs">
+      <DependentUpon>EditRestaurantProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\AddNewRestaurantProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\AddNewRestaurantProduct.Designer.cs">
+      <DependentUpon>AddNewRestaurantProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\ProductControler.cs" />
+    <Compile Include="Forms\RestaurantForms\RestaurantProductInfo.cs" />
+    <Compile Include="Forms\RestaurantProductDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantProductDetails.Designer.cs">
+      <DependentUpon>RestaurantProductDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProductDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductDetails.Designer.cs">
+      <DependentUpon>ProductDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\EditTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\EditTable.Designer.cs">
+      <DependentUpon>EditTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\TablesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\TablesList.Designer.cs">
+      <DependentUpon>TablesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\TemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\TemForm.Designer.cs">
+      <DependentUpon>TemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\AddNewTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantForms\AddNewTable.Designer.cs">
+      <DependentUpon>AddNewTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalesControler.cs" />
+    <Compile Include="Forms\SuppliersForms\EditSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\EditSupplier.Designer.cs">
+      <DependentUpon>EditSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\SuppliersControler.cs" />
+    <Compile Include="Forms\SuppliersForms\SuppliersDetailsInfo.cs" />
+    <Compile Include="Forms\SuppliersForms\AddNewSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\AddNewSupplier.Designer.cs">
+      <DependentUpon>AddNewSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\TemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuppliersForms\TemForm.Designer.cs">
+      <DependentUpon>TemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TablesManeg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TablesManeg.Designer.cs">
+      <DependentUpon>TablesManeg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RestaurantSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RestaurantSale.Designer.cs">
+      <DependentUpon>RestaurantSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SalesForm.Designer.cs">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SupplierDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SupplierDetails.Designer.cs">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerialKeyControler.cs" />
+    <EmbeddedResource Include="CompanyRegistration.resx">
+      <DependentUpon>CompanyRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataBaseInstaller\DataBaseConfigForm.resx" />
+    <EmbeddedResource Include="DataBaseInstaller\FirstForm.resx" />
+    <EmbeddedResource Include="DataBaseInstaller\ImportDataBase.resx" />
+    <EmbeddedResource Include="DataBaseInstaller\PasswordChange.resx" />
+    <EmbeddedResource Include="Forms\AccountForms\Cheques.resx">
+      <DependentUpon>Cheques.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AccountForms\CashBook.resx">
+      <DependentUpon>CashBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AccountForms\CashInOut.resx">
+      <DependentUpon>CashInOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AccountForms\Accounts.resx">
+      <DependentUpon>Accounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BarCodeForms\BarCode.resx">
+      <DependentUpon>BarCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BarCodeForms\BarCode3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BarCode3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportFrom\StockReport.resx">
+      <DependentUpon>StockReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportFrom\SummaryReport.resx">
+      <DependentUpon>SummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportFrom\Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\CardBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CardBill.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Returns.resx">
+      <DependentUpon>Returns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForms\SearchCustomer.resx">
+      <DependentUpon>SearchCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GRNDetails.resx">
+      <DependentUpon>GRNDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForms\AddCustomerCredit.resx">
+      <DependentUpon>AddCustomerCredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForms\AddCustomerDebit.resx">
+      <DependentUpon>AddCustomerDebit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForms\CustomerInfo.resx">
+      <DependentUpon>CustomerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GRNForms\AddNewGRN.resx">
+      <DependentUpon>AddNewGRN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InvoiceForms\InvoiceOverviewSinhala.resx">
+      <DependentUpon>InvoiceOverviewSinhala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\CardinvoiceSinhala.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CardinvoiceSinhala.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\PrinterSettings.resx">
+      <DependentUpon>PrinterSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\PrintigSettings.resx">
+      <DependentUpon>PrintigSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\Colors.resx">
+      <DependentUpon>Colors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\Networking.resx">
+      <DependentUpon>Networking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\Password.resx">
+      <DependentUpon>Password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\ClearData.resx">
+      <DependentUpon>ClearData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\CompanyDetails.resx">
+      <DependentUpon>CompanyDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\PrintigSetting\TableBillSetting.resx">
+      <DependentUpon>TableBillSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\PrintigSetting\BillSetting.resx">
+      <DependentUpon>BillSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\SystemAction.resx">
+      <DependentUpon>SystemAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\RoleMgt.resx">
+      <DependentUpon>RoleMgt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\ScaleExport.resx">
+      <DependentUpon>ScaleExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupperMarketForms\CardPay.resx">
+      <DependentUpon>CardPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupperMarketForms\CardBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CardBill.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupperMarketForms\CashBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CashBill.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupperMarketForms\CashPay.resx">
+      <DependentUpon>CashPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupperMarketForms\EditSupperMarketProduct.resx">
+      <DependentUpon>EditSupperMarketProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupperMarketForms\AddNewSupperMarketProduct.resx">
+      <DependentUpon>AddNewSupperMarketProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuppliersForms\AddSupplierDebit.resx">
+      <DependentUpon>AddSupplierDebit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuppliersForms\AddSupplierCredit.resx">
+      <DependentUpon>AddSupplierCredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuppliersForms\SuppliersInfo.resx">
+      <DependentUpon>SuppliersInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Temp.resx">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForms\Chages.resx">
+      <DependentUpon>Chages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\AddNewUser.resx">
+      <DependentUpon>AddNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\UserDetailsList.resx">
+      <DependentUpon>UserDetailsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="serialKey.resx">
+      <DependentUpon>serialKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controler\ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\CardPayment.resx">
+      <DependentUpon>CardPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\CashPayment.resx">
+      <DependentUpon>CashPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CrystalReportViewPage.resx">
+      <DependentUpon>CrystalReportViewPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerDetails.resx">
+      <DependentUpon>CustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForms\EditCustomer.resx">
+      <DependentUpon>EditCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForms\AddNewCustomer.resx">
+      <DependentUpon>AddNewCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InvoiceDetails.resx">
+      <DependentUpon>InvoiceDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InvoiceForms\InvoiceOverview.resx">
+      <DependentUpon>InvoiceOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ItemsForms\EditCategory.resx">
+      <DependentUpon>EditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ItemsForms\AddNewCategory.resx">
+      <DependentUpon>AddNewCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ItemsForms\CategoryList.resx">
+      <DependentUpon>CategoryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KeyBoard.resx">
+      <DependentUpon>KeyBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportView.resx">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\CashBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CashBill.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\TableBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TableBill.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\KOTbill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>KOTbill.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\KOT_PrintForm.resx">
+      <DependentUpon>KOT_PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\EditRestaurantProduct.resx">
+      <DependentUpon>EditRestaurantProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\AddNewRestaurantProduct.resx">
+      <DependentUpon>AddNewRestaurantProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantProductDetails.resx">
+      <DependentUpon>RestaurantProductDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductDetails.resx">
+      <DependentUpon>ProductDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\EditTable.resx">
+      <DependentUpon>EditTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\TablesList.resx">
+      <DependentUpon>TablesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\TemForm.resx">
+      <DependentUpon>TemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantForms\AddNewTable.resx">
+      <DependentUpon>AddNewTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuppliersForms\EditSupplier.resx">
+      <DependentUpon>EditSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuppliersForms\AddNewSupplier.resx">
+      <DependentUpon>AddNewSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuppliersForms\TemForm.resx">
+      <DependentUpon>TemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TablesManeg.resx">
+      <DependentUpon>TablesManeg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RestaurantSale.resx">
+      <DependentUpon>RestaurantSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SalesForm.resx">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupplierDetails.resx">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Forms\BarCodeForms\BarCodeDS.xsc">
+      <DependentUpon>BarCodeDS.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\BarCodeForms\BarCodeDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BarCodeDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\BarCodeForms\BarCodeDS.xss">
+      <DependentUpon>BarCodeDS.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\RestaurantForms\ItemSalesDS.xsc">
+      <DependentUpon>ItemSalesDS.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\RestaurantForms\ItemSalesDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItemSalesDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\RestaurantForms\ItemSalesDS.xss">
+      <DependentUpon>ItemSalesDS.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\RestaurantForms\KOTdb.xsc">
+      <DependentUpon>KOTdb.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\RestaurantForms\KOTdb.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KOTdb.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\RestaurantForms\KOTdb.xss">
+      <DependentUpon>KOTdb.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\SupperMarketForms\ItemSalesDS.xsc">
+      <DependentUpon>ItemSalesDS.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\SupperMarketForms\ItemSalesDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItemSalesDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Forms\SupperMarketForms\ItemSalesDS.xss">
+      <DependentUpon>ItemSalesDS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MySql.Data.dll" />
+    <Content Include="Resources\0.jpg" />
+    <Content Include="Resources\00.jpg" />
+    <Content Include="Resources\001.jpg" />
+    <Content Include="Resources\0011.jpg" />
+    <Content Include="Resources\002.jpg" />
+    <Content Include="Resources\01.jpg" />
+    <Content Include="Resources\1.jpg" />
+    <Content Include="Resources\11.jpg" />
+    <Content Include="Resources\1325216857_ok-green.png" />
+    <Content Include="Resources\1325303798_br_down.png" />
+    <Content Include="Resources\1326540323_Arrow-Left.png" />
+    <Content Include="Resources\1357316799_reload.png" />
+    <Content Include="Resources\1363604060_stock_lock.png" />
+    <Content Include="Resources\1363604076_stock_lock-open.png" />
+    <Content Include="Resources\1363605283_stock_lock.png" />
+    <Content Include="Resources\1363605289_stock_lock-open.png" />
+    <Content Include="Resources\1363630928_sign_free.png" />
+    <Content Include="Resources\1366365174_search_button.png" />
+    <Content Include="Resources\1366365294_search - Copy.png" />
+    <Content Include="Resources\1366365294_search.png" />
+    <Content Include="Resources\1372416453_personal.png" />
+    <Content Include="Resources\1372417817_package_network.png" />
+    <Content Include="Resources\1372419867_decrypted.png" />
+    <Content Include="Resources\2.jpg" />
+    <Content Include="Resources\21.jpg" />
+    <Content Include="Resources\3.jpg" />
+    <Content Include="Resources\31.jpg" />
+    <Content Include="Resources\4.jpg" />
+    <Content Include="Resources\41.jpg" />
+    <Content Include="Resources\5.jpg" />
+    <Content Include="Resources\51.jpg" />
+    <Content Include="Resources\6.jpg" />
+    <Content Include="Resources\61.jpg" />
+    <Content Include="Resources\7.jpg" />
+    <Content Include="Resources\71.jpg" />
+    <Content Include="Resources\8.jpg" />
+    <Content Include="Resources\81.jpg" />
+    <Content Include="Resources\9.jpg" />
+    <Content Include="Resources\91.jpg" />
+    <Content Include="Resources\AC.jpg" />
+    <Content Include="Resources\AC1.jpg" />
+    <Content Include="Resources\AC_Seek.jpg" />
+    <Content Include="Resources\AC_Seek1.jpg" />
+    <Content Include="Resources\AC_Settle.jpg" />
+    <Content Include="Resources\AC_Settle1.jpg" />
+    <Content Include="Resources\AddCheque1.jpg" />
+    <Content Include="Resources\AddCheque2.jpg" />
+    <Content Include="Resources\AddCheque3.jpg" />
+    <Content Include="Resources\AddCheque4.jpg" />
+    <Content Include="Resources\AddCheque5.jpg" />
+    <Content Include="Resources\addicon.png" />
+    <Content Include="Resources\AddStock1.jpg" />
+    <Content Include="Resources\AddStock1.png" />
+    <Content Include="Resources\AddStock2.jpg" />
+    <Content Include="Resources\AddStock3.jpg" />
+    <Content Include="Resources\AddStock4.jpg" />
+    <Content Include="Resources\AddStock5.jpg" />
+    <Content Include="Resources\Advance.jpg" />
+    <Content Include="Resources\alert.gif" />
+    <Content Include="Resources\Android Light Gradient Background 3001.png" />
+    <Content Include="Resources\arrow.gif" />
+    <Content Include="Resources\Bill_Seek.jpg" />
+    <Content Include="Resources\Bill_Seek1.jpg" />
+    <Content Include="Resources\binary.gif" />
+    <Content Include="Resources\bluebackground.jpg" />
+    <Content Include="Resources\B_Space.jpg" />
+    <Content Include="Resources\B_Space1.jpg" />
+    <Content Include="Resources\B_Space11.jpg" />
+    <Content Include="Resources\B_Space2.jpg" />
+    <Content Include="Resources\CAcc1.jpg" />
+    <Content Include="Resources\CAcc2.jpg" />
+    <Content Include="Resources\CAcc3.jpg" />
+    <Content Include="Resources\CAcc4.jpg" />
+    <Content Include="Resources\CAcc5.jpg" />
+    <Content Include="Resources\Cancel.jpg" />
+    <Content Include="Resources\Cancel1.jpg" />
+    <Content Include="Resources\Cancel11.jpg" />
+    <Content Include="Resources\Cancel2.jpg" />
+    <Content Include="Resources\CB1.jpg" />
+    <Content Include="Resources\CB2.jpg" />
+    <Content Include="Resources\CB3.jpg" />
+    <Content Include="Resources\CB4.jpg" />
+    <Content Include="Resources\CB5.jpg" />
+    <Content Include="Resources\Clear.jpg" />
+    <None Include="Resources\Clear.png" />
+    <Content Include="Resources\Clear1.jpg" />
+    <Content Include="Resources\collapse.png" />
+    <Content Include="Resources\collapse1.png" />
+    <Content Include="Resources\Contact1.jpg" />
+    <Content Include="Resources\Contact2.jpg" />
+    <Content Include="Resources\Contact3.jpg" />
+    <Content Include="Resources\Contact4.jpg" />
+    <Content Include="Resources\Contact5.jpg" />
+    <Content Include="Resources\CreateUser1.jpg" />
+    <Content Include="Resources\CreateUser2.jpg" />
+    <Content Include="Resources\CreateUser3.jpg" />
+    <Content Include="Resources\CreateUser4.jpg" />
+    <Content Include="Resources\CreateUser5.jpg" />
+    <Content Include="Resources\CStock1.jpg" />
+    <Content Include="Resources\CStock2.jpg" />
+    <Content Include="Resources\CStock3.jpg" />
+    <Content Include="Resources\CStock4.jpg" />
+    <Content Include="Resources\CStock5.jpg" />
+    <Content Include="Resources\Cust_Sel.jpg" />
+    <Content Include="Resources\Cust_Sel1.jpg" />
+    <Content Include="Resources\C_Settle.jpg" />
+    <Content Include="Resources\C_Settle1.jpg" />
+    <Content Include="Resources\DashBoad\Account.png" />
+    <Content Include="Resources\DashBoad\Customer.png" />
+    <Content Include="Resources\DashBoad\GRN.png" />
+    <Content Include="Resources\DashBoad\imgRole.png" />
+    <Content Include="Resources\DashBoad\Invoice.png" />
+    <Content Include="Resources\DashBoad\ItemSales.png" />
+    <Content Include="Resources\DashBoad\Product.png" />
+    <Content Include="Resources\DashBoad\Report.png" />
+    <Content Include="Resources\DashBoad\Return%27s.png" />
+    <Content Include="Resources\DashBoad\Supplir.png" />
+    <Content Include="Resources\Dash_Sales.png" />
+    <Content Include="Resources\deactive.png" />
+    <Content Include="Resources\deactive1.png" />
+    <Content Include="Resources\Dept.jpg" />
+    <Content Include="Resources\Dept1.jpg" />
+    <Content Include="Resources\Dis_Amt.jpg" />
+    <Content Include="Resources\Dis_Amt1.jpg" />
+    <Content Include="Resources\Dis_Level.jpg" />
+    <Content Include="Resources\Dis_Level1.jpg" />
+    <Content Include="Resources\Dis_Remove.jpg" />
+    <Content Include="Resources\Dis_Remove1.jpg" />
+    <Content Include="Resources\dot.jpg" />
+    <Content Include="Resources\dot1.jpg" />
+    <Content Include="Resources\edit.gif" />
+    <Content Include="Resources\Enter.jpg" />
+    <Content Include="Resources\Enter1.jpg" />
+    <Content Include="Resources\ERRC.jpg" />
+    <Content Include="Resources\ERRC1.jpg" />
+    <Content Include="Resources\extract.png" />
+    <Content Include="Resources\Gift_Issue.jpg" />
+    <Content Include="Resources\Gift_Issue1.jpg" />
+    <Content Include="Resources\Gift_Return.jpg" />
+    <Content Include="Resources\Gift_Return1.jpg" />
+    <Content Include="Resources\help.png" />
+    <Content Include="Resources\homeBack.png" />
+    <Content Include="Resources\Image1.bmp" />
+    <Content Include="Resources\imgBudget.png" />
+    <Content Include="Resources\imgCashbook.png" />
+    <Content Include="Resources\imgCashbookf.png" />
+    <Content Include="Resources\imgCashbookf1.png" />
+    <Content Include="Resources\imgCheque.png" />
+    <Content Include="Resources\imgClose32 - Copy.png" />
+    <Content Include="Resources\imgClose32.png" />
+    <Content Include="Resources\imgContact.png" />
+    <Content Include="Resources\imgCreditAcc.png" />
+    <Content Include="Resources\imgCustomermgt.png" />
+    <Content Include="Resources\imgDebitAcc.png" />
+    <Content Include="Resources\imgInvoice.png" />
+    <Content Include="Resources\imgLogin.png" />
+    <Content Include="Resources\imgMerchantAcc.png" />
+    <Content Include="Resources\imgMin32 - Copy.png" />
+    <Content Include="Resources\imgMin32.png" />
+    <Content Include="Resources\imgSearch.png" />
+    <Content Include="Resources\imgSearch1.png" />
+    <Content Include="Resources\imgSearch24 - Copy.png" />
+    <Content Include="Resources\imgSearch24.png" />
+    <Content Include="Resources\imgSearch32 - Copy.png" />
+    <Content Include="Resources\imgSearch32.png" />
+    <Content Include="Resources\imgSrch.png" />
+    <Content Include="Resources\imgStock.png" />
+    <Content Include="Resources\imgUser.png" />
+    <Content Include="Resources\imgUsers.png" />
+    <Content Include="Resources\index.jpg" />
+    <Content Include="Resources\ItemReceive1.jpg" />
+    <Content Include="Resources\ItemReceive2.jpg" />
+    <Content Include="Resources\ItemReceive3.jpg" />
+    <Content Include="Resources\ItemReceive4.jpg" />
+    <Content Include="Resources\ItemReceive5.jpg" />
+    <Content Include="Resources\ItemSales1.jpg" />
+    <Content Include="Resources\ItemSales2.jpg" />
+    <Content Include="Resources\ItemSales3.jpg" />
+    <Content Include="Resources\ItemSales4.jpg" />
+    <Content Include="Resources\ItemSales5.jpg" />
+    <Content Include="Resources\Login1.jpg" />
+    <Content Include="Resources\Login2.jpg" />
+    <Content Include="Resources\Login3.jpg" />
+    <Content Include="Resources\Login4.jpg" />
+    <Content Include="Resources\Login5.jpg" />
+    <Content Include="Resources\Login_Image.jpg" />
+    <Content Include="Resources\Logo.png" />
+    <Content Include="Resources\Master.jpg" />
+    <Content Include="Resources\Master1.jpg" />
+    <Content Include="Resources\Mccd.jpg" />
+    <Content Include="Resources\Mccd1.jpg" />
+    <Content Include="Resources\MDC.jpg" />
+    <Content Include="Resources\MDC1.jpg" />
+    <Content Include="Resources\Menu.jpg" />
+    <Content Include="Resources\Menu1.jpg" />
+    <Content Include="Resources\Menu2.jpg" />
+    <Content Include="Resources\Merchant1.png" />
+    <Content Include="Resources\Merchant2.png" />
+    <Content Include="Resources\Merchant3.png" />
+    <Content Include="Resources\Merchant4.png" />
+    <Content Include="Resources\Merchant5.png" />
+    <Content Include="Resources\Minus.jpg" />
+    <Content Include="Resources\Minus1.jpg" />
+    <Content Include="Resources\New_Logo.png" />
+    <Content Include="Resources\NPR.jpg" />
+    <Content Include="Resources\NPR1.jpg" />
+    <Content Include="Resources\NS.jpg" />
+    <Content Include="Resources\NS1.jpg" />
+    <Content Include="Resources\ok.png" />
+    <Content Include="Resources\ok1.png" />
+    <Content Include="Resources\OrderItem1.jpg" />
+    <Content Include="Resources\OrderItem2.jpg" />
+    <Content Include="Resources\OrderItem3.jpg" />
+    <Content Include="Resources\OrderItem4.jpg" />
+    <Content Include="Resources\OrderItem5.jpg" />
+    <Content Include="Resources\Percentage.jpg" />
+    <Content Include="Resources\Percentage1.jpg" />
+    <Content Include="Resources\PLU.jpg" />
+    <Content Include="Resources\PLU1.jpg" />
+    <Content Include="Resources\PLU2.jpg" />
+    <Content Include="Resources\Plus.jpg" />
+    <Content Include="Resources\Plus1.jpg" />
+    <Content Include="Resources\PO.jpg" />
+    <Content Include="Resources\PO1.jpg" />
+    <Content Include="Resources\Preview_16x16.png" />
+    <Content Include="Resources\print.png" />
+    <Content Include="Resources\printBtn1.jpg" />
+    <Content Include="Resources\PurchaseOrder1.jpg" />
+    <Content Include="Resources\PurchaseOrder2.jpg" />
+    <Content Include="Resources\PurchaseOrder3.jpg" />
+    <Content Include="Resources\PurchaseOrder4.jpg" />
+    <Content Include="Resources\PurchaseOrder5.jpg" />
+    <Content Include="Resources\P_Reedem.jpg" />
+    <Content Include="Resources\P_Reedem1.jpg" />
+    <Content Include="Resources\RCL.jpg" />
+    <Content Include="Resources\RCL1.jpg" />
+    <Content Include="Resources\Refu.jpg" />
+    <Content Include="Resources\Refu1.jpg" />
+    <Content Include="Resources\Rel.jpg" />
+    <Content Include="Resources\Rel1.jpg" />
+    <Content Include="Resources\Role1.jpg" />
+    <Content Include="Resources\Role11.jpg" />
+    <Content Include="Resources\Role2.jpg" />
+    <Content Include="Resources\Role3.jpg" />
+    <Content Include="Resources\Role4.jpg" />
+    <Content Include="Resources\Role5.jpg" />
+    <Content Include="Resources\R_PLU - Copy.jpg" />
+    <Content Include="Resources\R_PLU - Copy1.jpg" />
+    <Content Include="Resources\R_PLU.jpg" />
+    <Content Include="Resources\R_PLU1.jpg" />
+    <Content Include="Resources\SaleServices1.jpg" />
+    <Content Include="Resources\SaleServices2.jpg" />
+    <Content Include="Resources\SaleServices3.jpg" />
+    <Content Include="Resources\SaleServices4.jpg" />
+    <Content Include="Resources\SaleServices5.jpg" />
+    <Content Include="Resources\salesRepresentative1.jpg" />
+    <Content Include="Resources\salesRepresentative2.jpg" />
+    <Content Include="Resources\salesRepresentative3.jpg" />
+    <Content Include="Resources\salesRepresentative4.jpg" />
+    <Content Include="Resources\salesRepresentative5.jpg" />
+    <Content Include="Resources\save.png" />
+    <Content Include="Resources\Search1.jpg" />
+    <Content Include="Resources\Search2.jpg" />
+    <Content Include="Resources\Search3.jpg" />
+    <Content Include="Resources\Search4.jpg" />
+    <Content Include="Resources\Search5.jpg" />
+    <Content Include="Resources\Seek.jpg" />
+    <Content Include="Resources\Seek1.jpg" />
+    <Content Include="Resources\Sign_Activate.jpg" />
+    <Content Include="Resources\Sign_Deactivate - Copy.jpg" />
+    <Content Include="Resources\Sign_Deactivate.jpg" />
+    <Content Include="Resources\SON.jpg" />
+    <Content Include="Resources\SON1.jpg" />
+    <Content Include="Resources\star.jpg" />
+    <Content Include="Resources\star1.jpg" />
+    <Content Include="Resources\stock1.jpg" />
+    <Content Include="Resources\stock2.jpg" />
+    <Content Include="Resources\stock3.jpg" />
+    <Content Include="Resources\stock4.jpg" />
+    <Content Include="Resources\stock5.jpg" />
+    <Content Include="Resources\suppliers.png" />
+    <Content Include="Resources\SUS - Copy.jpg" />
+    <Content Include="Resources\SUS.jpg" />
+    <Content Include="Resources\SUS1.jpg" />
+    <Content Include="Resources\time.png" />
+    <Content Include="Resources\ViewPurchaseOrder1.jpg" />
+    <Content Include="Resources\ViewPurchaseOrder2.jpg" />
+    <Content Include="Resources\ViewPurchaseOrder3.jpg" />
+    <Content Include="Resources\ViewPurchaseOrder4.jpg" />
+    <Content Include="Resources\ViewPurchaseOrder5.jpg" />
+    <Content Include="Resources\Visa.jpg" />
+    <Content Include="Resources\Visa1.jpg" />
+    <Content Include="Resources\Void.jpg" />
+    <Content Include="Resources\Void1.jpg" />
+    <Content Include="Resources\wallpaper.jpg" />
+    <Content Include="Resources\Welfare_r.jpg" />
+    <Content Include="Resources\Welfare_r1.jpg" />
+    <Content Include="Resources\wp9764009.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
