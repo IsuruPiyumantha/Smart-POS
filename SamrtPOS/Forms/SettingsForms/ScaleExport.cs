@@ -56,6 +56,11 @@ namespace SmartPOS.Forms.SettingsForms
                                 dt1.Columns.Remove("item_name");
                                 dt1.Columns["item_name_sinhala"].ColumnName = "item_name";
                             }
+                            dt1.Columns.Add("count", typeof(int));
+                            for (int a = 0; a < dt1.Rows.Count; a++)
+                            {
+                                dt1.Rows[a]["count"] = a + 1;
+                            }
                             foreach (DataRow r in dt1.Rows)
                             {
                                 string id = r["ID"].ToString();
@@ -126,7 +131,14 @@ namespace SmartPOS.Forms.SettingsForms
                     {
                         foreach (DataRow r in dt1.Rows)
                         {
-                            tw.WriteLineAsync(r["ItemCode"].ToString() + "#" + r["item_name"].ToString().ToUpper() + "#" + r["labled_price"].ToString() + "#");
+                            if (chkCount.Checked == true)
+                            {
+                                tw.WriteLineAsync(r["count"].ToString() + "#" + r["ItemCode"].ToString() + "#" + r["item_name"].ToString().ToUpper() + "#" + r["labled_price"].ToString() + "#");
+                            }
+                            else
+                            {
+                                tw.WriteLineAsync(r["ItemCode"].ToString() + "#" + r["item_name"].ToString().ToUpper() + "#" + r["labled_price"].ToString() + "#");
+                            }
                         }
                     }
                     this.Close();

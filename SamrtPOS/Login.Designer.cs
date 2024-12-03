@@ -35,7 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.RbtnSinhala = new System.Windows.Forms.RadioButton();
             this.RbtnEnglish = new System.Windows.Forms.RadioButton();
-            this.btnOrder = new System.Windows.Forms.Button();
+            this.imgLogo = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -98,7 +98,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.RbtnSinhala);
             this.panel1.Controls.Add(this.RbtnEnglish);
-            this.panel1.Controls.Add(this.btnOrder);
+            this.panel1.Controls.Add(this.imgLogo);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label3);
@@ -136,20 +136,20 @@
             this.RbtnEnglish.Text = "English";
             this.RbtnEnglish.UseVisualStyleBackColor = true;
             // 
-            // btnOrder
+            // imgLogo
             // 
-            this.btnOrder.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOrder.BackgroundImage")));
-            this.btnOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOrder.FlatAppearance.BorderSize = 0;
-            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrder.Location = new System.Drawing.Point(5, 3);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(150, 150);
-            this.btnOrder.TabIndex = 67;
-            this.btnOrder.Tag = "8";
-            this.btnOrder.UseVisualStyleBackColor = true;
-            this.btnOrder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnClose_KeyDown);
+            this.imgLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgLogo.BackgroundImage")));
+            this.imgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.imgLogo.FlatAppearance.BorderSize = 0;
+            this.imgLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.imgLogo.Location = new System.Drawing.Point(5, 3);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(150, 150);
+            this.imgLogo.TabIndex = 67;
+            this.imgLogo.Tag = "8";
+            this.imgLogo.UseVisualStyleBackColor = true;
+            this.imgLogo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnClose_KeyDown);
             // 
             // txtPassword
             // 
@@ -331,7 +331,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnOrder;
+        private System.Windows.Forms.Button imgLogo;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.RadioButton RbtnSinhala;
         private System.Windows.Forms.RadioButton RbtnEnglish;

@@ -39,11 +39,13 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gridDataDetails = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labled_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.MainPanel = new System.Windows.Forms.Panel();
+            this.chkCount = new System.Windows.Forms.CheckBox();
             this.FooterPanel.SuspendLayout();
             this.HeaderPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -55,6 +57,7 @@
             // FooterPanel
             // 
             this.FooterPanel.BackColor = System.Drawing.Color.White;
+            this.FooterPanel.Controls.Add(this.chkCount);
             this.FooterPanel.Controls.Add(this.btnExport);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FooterPanel.Location = new System.Drawing.Point(3, 486);
@@ -131,6 +134,7 @@
             this.gridDataDetails.BackgroundColor = System.Drawing.Color.White;
             this.gridDataDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDataDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.count,
             this.ItemCode,
             this.item_name,
             this.labled_price});
@@ -147,6 +151,43 @@
             this.gridDataDetails.Size = new System.Drawing.Size(873, 424);
             this.gridDataDetails.TabIndex = 5;
             this.gridDataDetails.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnClose_KeyDown);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.HeaderPanel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.FooterPanel, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(879, 538);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.BackColor = System.Drawing.Color.White;
+            this.MainPanel.Controls.Add(this.tableLayoutPanel1);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(0, 0);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(879, 538);
+            this.MainPanel.TabIndex = 1;
+            // 
+            // count
+            // 
+            this.count.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.count.DataPropertyName = "count";
+            this.count.HeaderText = "Count";
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 50;
             // 
             // ItemCode
             // 
@@ -184,33 +225,15 @@
             this.labled_price.ReadOnly = true;
             this.labled_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
-            // tableLayoutPanel1
+            // chkCount
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.HeaderPanel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.FooterPanel, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(879, 538);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.BackColor = System.Drawing.Color.White;
-            this.MainPanel.Controls.Add(this.tableLayoutPanel1);
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(0, 0);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(879, 538);
-            this.MainPanel.TabIndex = 1;
+            this.chkCount.AutoSize = true;
+            this.chkCount.Location = new System.Drawing.Point(597, 23);
+            this.chkCount.Name = "chkCount";
+            this.chkCount.Size = new System.Drawing.Size(110, 17);
+            this.chkCount.TabIndex = 39;
+            this.chkCount.Text = "Export Item Count";
+            this.chkCount.UseVisualStyleBackColor = true;
             // 
             // ScaleExport
             // 
@@ -223,6 +246,7 @@
             this.Name = "ScaleExport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FooterPanel.ResumeLayout(false);
+            this.FooterPanel.PerformLayout();
             this.HeaderPanel.ResumeLayout(false);
             this.HeaderPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -244,6 +268,8 @@
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.DataGridView gridDataDetails;
+        private System.Windows.Forms.CheckBox chkCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn count;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn labled_price;

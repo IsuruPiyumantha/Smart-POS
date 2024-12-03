@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,33 @@ namespace SmartPOS
             InitializeComponent();
             setColour();
             SelectLang();
+            SeteLogo();
+        }
+
+        private void SeteLogo()
+        {
+            try
+            {
+                string path =  Directory.GetCurrentDirectory() + "\\Logo.jpeg";
+                if (File.Exists(path))
+                {
+                    Bitmap b = new Bitmap(@path);
+                    imgLogo.BackgroundImage = b;
+                }
+                else
+                {
+                    path = Directory.GetCurrentDirectory() + "\\Logo.png";
+                    if (File.Exists(path))
+                    {
+                        Bitmap b = new Bitmap(@path);
+                        imgLogo.BackgroundImage = b;
+                    }
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void SelectLang()
