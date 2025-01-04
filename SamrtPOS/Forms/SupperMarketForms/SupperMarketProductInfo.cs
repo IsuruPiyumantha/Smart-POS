@@ -19,11 +19,16 @@ namespace SmartPOS.Forms.SupperMarketForms
         public decimal BuyingCost { get; set; }
         public int Category { get; set; }
         public string CategoryName { get; set; }
+        public int SubCategory { get; set; }
+        public string SubCategoryName { get; set; }
         public int Supplier { get; set; }
         public string SupplierName { get; set; }
         public string BarCode { get; set; }
         public string BarCode2 { get; set; }
         public string BarCode3 { get; set; }
-
+        public int Buy { get; set; }
+        public int Get { get; set; }
+        public int DateExp { get; set; }
+        public bool Isprint { get; set; }
     }
 }

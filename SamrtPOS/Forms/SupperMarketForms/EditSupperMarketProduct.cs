@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace SmartPOS.Forms.SupperMarketForms
 {
@@ -134,26 +135,46 @@ namespace SmartPOS.Forms.SupperMarketForms
                 txtSpecialPrice.Text = prodInfo.SpeciaPrice.ToString();
                 txtWholePrice.Text = prodInfo.WholesalePrice.ToString();
                 txtBuyingCost.Text = prodInfo.BuyingCost.ToString();
-                combCategory.SelectedValue = prodInfo.Category;
-                txtSupplier.SelectedValue = prodInfo.Supplier;
+                if (prodInfo.Category > 0)
+                {
+                    combCategory.SelectedValue = prodInfo.Category;
+                }
+                if (prodInfo.SubCategory > 0)
+                {
+                    combSubCategory.SelectedValue = prodInfo.SubCategory;
+                }
+                if (prodInfo.Supplier > 0)
+                {
+                    txtSupplier.SelectedValue = prodInfo.Supplier;
+                }
+                if(prodInfo.Buy > 0)
+                {
+                    txtitemBuy.Text = prodInfo.Buy.ToString();
+                }
+                if(prodInfo.Get > 0)
+                {
+                    txtItemGet.Text = prodInfo.Get.ToString();
+                }
+                if(prodInfo.DateExp > 0)
+                {
+                    txtDateExp.Text = prodInfo.DateExp.ToString();
+                }
+                if (prodInfo.Isprint == true)
+                    chkExpPrint.Checked = true;
+                else
+                    chkExpPrint.Checked = false;
                 txtBarCode.Text = prodInfo.BarCode.ToString();
                 txtBarCode2.Text = prodInfo.BarCode2.ToString();
                 txtBarCode3.Text = prodInfo.BarCode3.ToString();
 
+                txtItemName.Text = prodInfo.ItemName.Trim().ToString();
+                txtItemNameSinhala.Text = prodInfo.ItemNameSinhala.Trim().ToString();
+
                 if (Program.companyProfile.IsEnglish)
                 {
                     txtItemNameSinhala.Enabled = false;
-                    txtItemName.Text = prodInfo.ItemName.Trim().ToString();
-                    txtItemNameSinhala.Text = prodInfo.ItemNameSinhala.Trim().ToString();
-                    txtItemName.Focus();
                 }
-                else
-                {
-                    txtItemName.Enabled = false;
-                    txtItemNameSinhala.Text = prodInfo.ItemNameSinhala.Trim().ToString();
-                    txtItemName.Text = prodInfo.ItemName.Trim().ToString();
-                    txtItemNameSinhala.Focus();
-                }
+                txtItemName.Focus();
             }
         }
 
@@ -215,6 +236,10 @@ namespace SmartPOS.Forms.SupperMarketForms
             txtLabledPrice.Text = "";
             txtSpecialPrice.Text = "";
             txtWholePrice.Text = "";
+            txtitemBuy.Text = "";
+            txtItemGet.Text = "";
+            txtDateExp.Text = "";
+            chkExpPrint.Checked = false;
             txtSupplier.SelectedIndex = 0;
             combCategory.SelectedIndex = 0;
             combUnit.SelectedIndex = 0;
@@ -257,11 +282,31 @@ namespace SmartPOS.Forms.SupperMarketForms
                 if (combCategory.SelectedIndex > 0)
                 {
                     prodInfo.Category = int.Parse(combCategory.SelectedValue.ToString());
+                    if (combSubCategory.SelectedIndex > 0)
+                    {
+                        prodInfo.SubCategory = int.Parse(combSubCategory.SelectedValue.ToString());
+                    }
                 }
                 if (txtSupplier.SelectedIndex > 0)
                 {
                     prodInfo.Supplier = int.Parse(txtSupplier.SelectedValue.ToString());
                 }
+                if (txtitemBuy.Text != "")
+                {
+                    prodInfo.Buy = int.Parse(txtitemBuy.Text.ToString());
+                }
+                if (txtItemGet.Text != "")
+                {
+                    prodInfo.Get = int.Parse(txtItemGet.Text.ToString());
+                }
+                if (txtDateExp.Text != "")
+                {
+                    prodInfo.DateExp = int.Parse(txtDateExp.Text.ToString());
+                }
+                if (chkExpPrint.Checked == true)
+                    prodInfo.Isprint = true;
+                else
+                    prodInfo.Isprint = false;
                 prodInfo.SupplierName = txtSupplier.Text.ToString();
                 prodInfo.BarCode = txtBarCode.Text.ToString();
                 prodInfo.BarCode2 = txtBarCode2.Text.ToString();
@@ -348,7 +393,14 @@ namespace SmartPOS.Forms.SupperMarketForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                combUnit.Focus();
+                if (Program.companyProfile.IsEnglish)
+                {
+                    combUnit.Focus();
+                }
+                else
+                {
+                    txtItemNameSinhala.Focus();
+                }
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
@@ -360,6 +412,12 @@ namespace SmartPOS.Forms.SupperMarketForms
             if (e.KeyCode == Keys.Enter)
             {
                 combUnit.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+            if (e.KeyCode == Keys.Up)
+            {
+                txtItemName.Focus();
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
@@ -378,15 +436,15 @@ namespace SmartPOS.Forms.SupperMarketForms
             {
                 if (combUnit.SelectedIndex < 1)
                 {
-                    if (txtItemName.Enabled == true)
+                    if (txtItemNameSinhala.Enabled == true)
                     {
-                        txtItemName.Focus();
+                        txtItemNameSinhala.Focus();
                         e.Handled = true;
                         e.SuppressKeyPress = true;
                     }
                     else
                     {
-                        txtItemNameSinhala.Focus();
+                        txtItemName.Focus();
                         e.Handled = true;
                         e.SuppressKeyPress = true;
                     }
@@ -467,9 +525,19 @@ namespace SmartPOS.Forms.SupperMarketForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txtSupplier.Focus();
-                e.Handled = true;
-                e.SuppressKeyPress = true;
+                if (combSubCategory.Enabled == true)
+                {
+                    combSubCategory.Focus();
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
+                }
+                else
+                {
+                    txtSupplier.Focus();
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
+                }
+
             }
             if (e.KeyCode == Keys.Up)
             {
@@ -489,6 +557,32 @@ namespace SmartPOS.Forms.SupperMarketForms
             BtnClose_KeyDown(sender, e);
         }
 
+        private void combSubCategory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtSupplier.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+            if (e.KeyCode == Keys.Up)
+            {
+                if (combCategory.SelectedIndex < 1)
+                {
+                    txtBuyingCost.Focus();
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
+                }
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                btnAddNewSubCategory.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+            BtnClose_KeyDown(sender, e);
+        }
+
         private void txtSupplier_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -501,9 +595,18 @@ namespace SmartPOS.Forms.SupperMarketForms
             {
                 if (txtSupplier.SelectedIndex < 1)
                 {
-                    combCategory.Focus();
-                    e.Handled = true;
-                    e.SuppressKeyPress = true;
+                    if (combSubCategory.Enabled == true)
+                    {
+                        combSubCategory.Focus();
+                        e.Handled = true;
+                        e.SuppressKeyPress = true;
+                    }
+                    else
+                    {
+                        combCategory.Focus();
+                        e.Handled = true;
+                        e.SuppressKeyPress = true;
+                    }
                 }
             }
             if (e.KeyCode == Keys.Right)
@@ -567,6 +670,36 @@ namespace SmartPOS.Forms.SupperMarketForms
             BtnClose_KeyDown(sender, e);
         }
 
+        private void btnAddNewCategory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                combCategory.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void btnAddNewSubCategory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                combSubCategory.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void button1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                txtSupplier.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void btnAddNewCategory_Click(object sender, EventArgs e)
         {
             AddNewCategory catList = new AddNewCategory();
@@ -620,6 +753,77 @@ namespace SmartPOS.Forms.SupperMarketForms
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
+            }
+        }
+
+        private void combCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (combCategory.SelectedIndex > 0)
+            {
+                combSubCategory.Enabled = true;
+                btnAddNewSubCategory.Enabled = true;
+                GetSubCategory();
+            }
+            else
+            {
+                combSubCategory.Enabled = false;
+                btnAddNewSubCategory.Enabled = false;
+            }
+        }
+
+        private void GetSubCategory()
+        {
+            DataTable dt = prodCont.GetAllSubCategory(int.Parse(combCategory.SelectedValue.ToString()));
+            DataRow r = dt.NewRow();
+            r[1] = "- Select -";
+            dt.Rows.InsertAt(r, 0);
+            combSubCategory.DataSource = dt;
+            combSubCategory.DisplayMember = "SubCategoryName";
+            combSubCategory.ValueMember = "ID";
+            combSubCategory.SelectedIndex = 0;
+        }
+
+        private void btnAddNewSubCategory_Click(object sender, EventArgs e)
+        {
+            AddNewSubCategory newSubCat = new AddNewSubCategory(combCategory.SelectedValue.ToString());
+            newSubCat.ShowDialog();
+            GetSubCategory();
+        }
+
+        private void txtItemNameSinhala_Enter(object sender, EventArgs e)
+        {
+            Application.CurrentInputLanguage = InputLanguage.FromCulture(new CultureInfo("si-LK"));
+        }
+
+        private void txtItemNameSinhala_Leave(object sender, EventArgs e)
+        {
+            Application.CurrentInputLanguage = InputLanguage.FromCulture(new CultureInfo("en-us"));
+        }
+
+        private void txtItemBuy_TextChanged(object sender, EventArgs e)
+        {
+            if (CmnFun.IsValidDecimalNo(txtitemBuy.Text.ToString()) == false)
+            {
+                MessageBox.Show("Invalid Buy.");
+                txtitemBuy.Text = "";
+            }
+        }
+
+        private void txtitemGet_TextChanged(object sender, EventArgs e)
+        {
+            if (CmnFun.IsValidDecimalNo(txtItemGet.Text.ToString()) == false)
+            {
+                MessageBox.Show("Invalid Get.");
+                txtItemGet.Text = "";
+            }
+        }
+
+        private void txtDateExp_TextChanged(object sender, EventArgs e)
+        {
+            if (CmnFun.IsValidDecimalNo(txtDateExp.Text.ToString()) == false)
+            {
+                MessageBox.Show("Invalid Dates to Expiration.");
+                txtDateExp.Text = "";
             }
         }
     }

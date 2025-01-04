@@ -1,13 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
-using SmartPOS;
 using SmartPOS.Controler;
 using SmartPOS.Forms.UserForms;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceProcess;
 using SmartPOS.Forms.SettingsForms;
@@ -20,6 +16,7 @@ namespace SmartPOS
         public static CompanyProfile companyProfile;
         public static UserInfo userDetails;
         public static PrinterInfo printerInfo;
+        public static string ServerName = string.Empty;
 
         public static int dataBaseprocessId = 0;
         private static string serialKey = string.Empty;
@@ -407,6 +404,7 @@ namespace SmartPOS
                                 serverConfigInfo.database = r["DatabaseName"].ToString();
                                 serverConfigInfo.type = int.Parse(r["Type"].ToString());
                             }
+                            ServerName = serverConfigInfo.hostName;
                             ConnectionString = "Host='" + serverConfigInfo.hostName + "'; UserName='" + serverConfigInfo.userName + "'; Port=3306;  Password='" + serverConfigInfo.password + "';Database='" + serverConfigInfo.database + "';CharSet=utf8;";
                         }
                     }

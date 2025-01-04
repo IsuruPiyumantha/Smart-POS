@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace SmartPOS.Forms
 {
@@ -61,6 +62,7 @@ namespace SmartPOS.Forms
             txtCode.Focus();
             ComboItemName();
             newForm();
+            lbl_shopName.Text = Program.companyProfile.CompanyName.ToString();
         }
 
         private void ComboItemName()
@@ -74,7 +76,7 @@ namespace SmartPOS.Forms
             {
                 foreach (DataRow r in itemsTable.Rows)
                 {
-                    dt2.Rows.Add(int.Parse(r["ID"].ToString()), r["item_name"].ToString());
+                    dt2.Rows.Add(int.Parse(r["ID"].ToString()),r["item_name"].ToString() + " - " + r["labled_price"].ToString());
                 }
             }
 
@@ -207,7 +209,8 @@ namespace SmartPOS.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTime.Text = DateTime.Now.ToString("hh:MM:ss tt");
+            DateTime nowDateTime = DateTime.Now;
+            lblTime.Text = nowDateTime.ToLongTimeString();
             lblDate.Text = DateTime.Now.ToLongDateString();
         }
 
@@ -283,6 +286,7 @@ namespace SmartPOS.Forms
             txtSpecPrice.Text = "0.00";
             txtLabPrice.Text = "0.00";
             txtTotPrice.Text = "0.00";
+            ComboItemName();
         }
 
         private void txtQnt_TextChanged(object sender, EventArgs e)
@@ -344,18 +348,22 @@ namespace SmartPOS.Forms
             {
                 txtQnt.Focus();
             }
-            if (e.KeyCode == Keys.F3)
-            {
-                txtQnt.Focus();
-            }
+
             if (e.KeyCode == Keys.F4)
             {
-
+                gridDataDetails.Focus();
             }
 
-            if (e.KeyCode == Keys.F5)
+            if (e.KeyCode == Keys.F8)
             {
-                gridDataDetails.Focus();
+                if (checkCardPayFee.Checked == false)
+                {
+                    checkCardPayFee.Checked = true;
+                }
+                else
+                {
+                    checkCardPayFee.Checked = false;
+                }
             }
 
 
@@ -367,6 +375,15 @@ namespace SmartPOS.Forms
             if (e.KeyCode == Keys.F10)
             {
                 CardBillPrint();
+            }
+
+            if (e.KeyCode == Keys.F11)
+            {
+                txtDiscountPer.Focus();
+            }
+            if (e.KeyCode == Keys.F12)
+            {
+                txtDiscount.Focus();
             }
             BtnClose_KeyDown(sender, e);
         }
@@ -440,6 +457,7 @@ namespace SmartPOS.Forms
                                                 GetFullTotalPrice();
 
                                                 ClearHeadPanel();
+                                                ComboItemName();
                                                 txtCode.Focus();
                                             }
                                         }
@@ -514,43 +532,62 @@ namespace SmartPOS.Forms
 
                 if (dr.Length > 0)
                 {
-                    foreach (DataRow row in dr)
+                    if (dr.Length == 1)
                     {
-                        int itemCode = int.Parse(row["ID"].ToString());
-                        string itemName = row["item_name"].ToString();
-                        decimal labPrice = Convert.ToDecimal(row["labled_price"].ToString());
-                        decimal spePrice = Convert.ToDecimal(row["special_price"].ToString());
-                        if (spePrice == 0)
+                        foreach (DataRow row in dr)
                         {
-                            spePrice = labPrice;
-                        }
-                        decimal totPrice = spePrice * 1;
-                        decimal fullTotPrice = labPrice * 1;
-
-                        if (gridDataDetails.Rows.Count > 0)
-                        {
-                            DataRow[] rowsToUpdate = dt.Select("ID = '" + itemCode + "'");
-
-                            if (rowsToUpdate.Length > 0)
+                            int itemCode = int.Parse(row["ID"].ToString());
+                            string itemName = row["item_name"].ToString();
+                            decimal labPrice = Convert.ToDecimal(row["labled_price"].ToString());
+                            decimal spePrice = Convert.ToDecimal(row["special_price"].ToString());
+                            if (spePrice == 0)
                             {
-                                foreach (DataRow row2 in rowsToUpdate)
+                                spePrice = labPrice;
+                            }
+                            decimal totPrice = spePrice * 1;
+                            decimal fullTotPrice = labPrice * 1;
+
+                            if (gridDataDetails.Rows.Count > 0)
+                            {
+                                DataRow[] rowsToUpdate = dt.Select("ID = '" + itemCode + "'");
+
+                                if (rowsToUpdate.Length > 0)
                                 {
-                                    // Update the Quantity and Total
-                                    // For demonstration, we'll add 1 to Quantity and update the Total accordingly
-                                    decimal currentQuantity = Convert.ToDecimal(row2["quantity"].ToString());
-                                    decimal currentPrice = Convert.ToDecimal(row2["labled_price"].ToString());
-                                    decimal currentSpePrice = Convert.ToDecimal(row2["special_price"].ToString());
-                                    decimal currentTotal = Convert.ToDecimal(row2["total_price"].ToString());
-                                    decimal currentFullTotal = Convert.ToDecimal(row2["full_tot_price"].ToString());
+                                    foreach (DataRow row2 in rowsToUpdate)
+                                    {
+                                        // Update the Quantity and Total
+                                        // For demonstration, we'll add 1 to Quantity and update the Total accordingly
+                                        decimal currentQuantity = Convert.ToDecimal(row2["quantity"].ToString());
+                                        decimal currentPrice = Convert.ToDecimal(row2["labled_price"].ToString());
+                                        decimal currentSpePrice = Convert.ToDecimal(row2["special_price"].ToString());
+                                        decimal currentTotal = Convert.ToDecimal(row2["total_price"].ToString());
+                                        decimal currentFullTotal = Convert.ToDecimal(row2["full_tot_price"].ToString());
 
-                                    row2["quantity"] = currentQuantity + 1;
-                                    row2["total_price"] = ((currentQuantity + 1) * currentSpePrice).ToString("#.00");
-                                    row2["full_tot_price"] = ((currentQuantity + 1) * currentPrice).ToString("#.00");
+                                        row2["quantity"] = currentQuantity + 1;
+                                        row2["total_price"] = ((currentQuantity + 1) * currentSpePrice).ToString("#.00");
+                                        row2["full_tot_price"] = ((currentQuantity + 1) * currentPrice).ToString("#.00");
 
+                                        for (int a = 0; a < dt.Rows.Count; a++)
+                                        {
+                                            dt.Rows[a]["count"] = a + 1;
+                                        }
+                                        gridDataDetails.AutoGenerateColumns = false;
+                                        gridDataDetails.DataSource = dt;
+                                        GetFullTotalPrice();
+                                        txtCode.Focus();
+                                        txtCode.Text = null;
+                                    }
+                                }
+                                else
+                                {
+                                    dt.Rows.Add(itemCode, itemName, labPrice, spePrice, 1, totPrice.ToString("#.00"), fullTotPrice.ToString("#.00"));
                                     for (int a = 0; a < dt.Rows.Count; a++)
                                     {
                                         dt.Rows[a]["count"] = a + 1;
                                     }
+
+
+
                                     gridDataDetails.AutoGenerateColumns = false;
                                     gridDataDetails.DataSource = dt;
                                     GetFullTotalPrice();
@@ -565,9 +602,6 @@ namespace SmartPOS.Forms
                                 {
                                     dt.Rows[a]["count"] = a + 1;
                                 }
-
-
-
                                 gridDataDetails.AutoGenerateColumns = false;
                                 gridDataDetails.DataSource = dt;
                                 GetFullTotalPrice();
@@ -575,19 +609,22 @@ namespace SmartPOS.Forms
                                 txtCode.Text = null;
                             }
                         }
-                        else
+                    }
+                    else if (dr.Length > 1)
+                    {
+                        DataTable dt2 = new DataTable();
+                        dt2.Columns.Add("ID", typeof(int));
+                        dt2.Columns.Add("item_name", typeof(string));
+                        dt2.Rows.Add(0, " ");
+                        foreach (DataRow row in dr)
                         {
-                            dt.Rows.Add(itemCode, itemName, labPrice, spePrice, 1, totPrice.ToString("#.00"), fullTotPrice.ToString("#.00"));
-                            for (int a = 0; a < dt.Rows.Count; a++)
-                            {
-                                dt.Rows[a]["count"] = a + 1;
-                            }
-                            gridDataDetails.AutoGenerateColumns = false;
-                            gridDataDetails.DataSource = dt;
-                            GetFullTotalPrice();
-                            txtCode.Focus();
-                            txtCode.Text = null;
+                            dt2.Rows.Add(int.Parse(row["ID"].ToString()), row["item_name"].ToString() + " - " + row["labled_price"].ToString());
                         }
+                        txtItemName.DataSource = dt2;
+                        txtItemName.DisplayMember = "item_name";
+                        txtItemName.ValueMember = "ID";
+                        txtItemName.SelectedIndex = 1;
+                        txtItemName.Focus();
                     }
                 }
                 if (txtCode.Text.Length == 10)
@@ -817,7 +854,7 @@ namespace SmartPOS.Forms
 
         private void GridShortCutKey(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F6)
+            if (e.KeyCode == Keys.F5)
             {
                 // Specify the column index (3rd column is index 2) and row index
                 int columnIndex = 3; // 3rd column (0-based index)
@@ -832,7 +869,7 @@ namespace SmartPOS.Forms
                     //gridDataDetails.Rows[rowIndex].Cells[columnIndex].Selected = true; 
                 }
             }
-            if (e.KeyCode == Keys.F7)
+            if (e.KeyCode == Keys.F6)
             {
                 // Specify the column index (3rd column is index 2) and row index
                 int columnIndex = 4; // 3rd column (0-based index)
@@ -847,7 +884,7 @@ namespace SmartPOS.Forms
                     //gridDataDetails.Rows[rowIndex].Cells[columnIndex].Selected = true; 
                 }
             }
-            if (e.KeyCode == Keys.F8)
+            if (e.KeyCode == Keys.F7)
             {
                 // Specify the column index (3rd column is index 2) and row index
                 int columnIndex = 5; // 3rd column (0-based index)
@@ -1150,6 +1187,26 @@ namespace SmartPOS.Forms
                         }
                     }
                 }
+            }
+            else
+            {
+                ShortCutKey(sender, e);
+            }
+        }
+
+        private void txtItemName_Enter(object sender, EventArgs e)
+        {
+            if(Program.IsEng == false)
+            {
+                Application.CurrentInputLanguage = InputLanguage.FromCulture(new CultureInfo("si-LK"));
+            }
+        }
+
+        private void txtItemName_Leave(object sender, EventArgs e)
+        {
+            if (Program.IsEng == false)
+            {
+                Application.CurrentInputLanguage = InputLanguage.FromCulture(new CultureInfo("en-us"));
             }
         }
     }

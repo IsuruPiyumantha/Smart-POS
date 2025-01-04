@@ -68,11 +68,11 @@ namespace SmartPOS.Forms
                         da.Fill(ds, "userDT");
                         dt1 = ds.Tables["userDT"];
 
-                        if (Program.companyProfile.IsEnglish == false)
-                        {
-                            dt1.Columns.Remove("item_name");
-                            dt1.Columns["item_name_sinhala"].ColumnName = "item_name";
-                        }
+                        //if (Program.companyProfile.IsEnglish == false)
+                        //{
+                        //    dt1.Columns.Remove("item_name");
+                        //    dt1.Columns["item_name_sinhala"].ColumnName = "item_name";
+                        //}
                         dt1.Columns.Add("count", typeof(int));
                         for (int a = 0; a < dt1.Rows.Count; a++)
                         {

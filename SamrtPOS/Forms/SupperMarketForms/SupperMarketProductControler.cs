@@ -33,7 +33,8 @@ namespace SmartPOS.Forms.SupperMarketForms
 
                     if (con != null)
                     {
-                        sql = "INSERT INTO tbl_pos_items (ID, item_name, item_name_sinhala, barcode, barcode2, barcode3, unit, labled_price, special_price, wholesale_price, buying_cost, Category, supplier) VALUES (@itemCode, @itemName, @itemNameSinhala, @barcode, @barcode2, @barcode3, @unit, @labledPrice,@spePrice, @wholPrice, @buyingCost, @category, @supplier);";
+                        sql = "INSERT INTO tbl_pos_items (ID, item_name, item_name_sinhala, barcode, barcode2, barcode3, unit, labled_price, special_price, wholesale_price, buying_cost, Category, SubCategory, supplier, buy, get, dateExp, isPrint)";
+                        sql = sql + " VALUES (@itemCode, @itemName, @itemNameSinhala, @barcode, @barcode2, @barcode3, @unit, @labledPrice,@spePrice, @wholPrice, @buyingCost, @category, @subCategory, @supplier, @buy, @get, @dateExp, @isprint);";
                         MySqlCommand cmd = new MySqlCommand(sql, con);
                         cmd.Parameters.Add("@itemCode", prodInfo.ItemCode);
                         cmd.Parameters.Add("@itemName", prodInfo.ItemName);
@@ -47,7 +48,12 @@ namespace SmartPOS.Forms.SupperMarketForms
                         cmd.Parameters.Add("@wholPrice", prodInfo.WholesalePrice);
                         cmd.Parameters.Add("@buyingCost", prodInfo.BuyingCost);
                         cmd.Parameters.Add("@category", prodInfo.Category);
+                        cmd.Parameters.Add("@subCategory", prodInfo.SubCategory);
                         cmd.Parameters.Add("@supplier", prodInfo.Supplier);
+                        cmd.Parameters.Add("@buy", prodInfo.Buy);
+                        cmd.Parameters.Add("@get", prodInfo.Get);
+                        cmd.Parameters.Add("@dateExp", prodInfo.DateExp);
+                        cmd.Parameters.Add("@isprint", Convert.ToInt32(prodInfo.Isprint));
                         cmd.ExecuteNonQuery();
                         IsTrue = true;
                     }
@@ -393,10 +399,16 @@ namespace SmartPOS.Forms.SupperMarketForms
                                 ProductInfo.WholesalePrice = decimal.Parse(r["wholesale_price"].ToString());
                                 ProductInfo.BuyingCost = decimal.Parse(r["buying_cost"].ToString());
                                 ProductInfo.Category = int.Parse(r["Category"].ToString());
+                                ProductInfo.SubCategory = int.Parse(r["SubCategory"].ToString());
                                 ProductInfo.Supplier = int.Parse(r["supplier"].ToString());
                                 ProductInfo.BarCode = r["barcode"].ToString();
                                 ProductInfo.BarCode2 = r["barcode2"].ToString();
                                 ProductInfo.BarCode3 = r["barcode3"].ToString();
+                                ProductInfo.Buy = int.Parse(r["buy"].ToString());
+                                ProductInfo.Get = int.Parse(r["get"].ToString());
+                                ProductInfo.DateExp = int.Parse(r["dateExp"].ToString());
+                                int print = int.Parse(r["isPrint"].ToString());
+                                ProductInfo.Isprint = Convert.ToBoolean(print);
                             }
                         }
 
@@ -435,7 +447,7 @@ namespace SmartPOS.Forms.SupperMarketForms
 
                     if (con != null)
                     {
-                        sql = "UPDATE tbl_pos_items tpi SET tpi.item_name =@itemName, tpi.item_name_sinhala =@itemNameSinhala, tpi.unit =@unit, tpi.labled_price =@labledPrice, tpi.special_price =@spePrice, tpi.wholesale_price =@wholPrice, tpi.buying_cost =@buyingCost, tpi.Category =@category, tpi.supplier =@supplier, tpi.barcode =@barcode, tpi.barcode2 =@barcode2, tpi.barcode3 =@barcode3 WHERE tpi.ID =@itemCode;";
+                        sql = "UPDATE tbl_pos_items tpi SET tpi.item_name =@itemName, tpi.item_name_sinhala =@itemNameSinhala, tpi.unit =@unit, tpi.labled_price =@labledPrice, tpi.special_price =@spePrice, tpi.wholesale_price =@wholPrice, tpi.buying_cost =@buyingCost, tpi.Category =@category, tpi.SubCategory =@subCategory,  tpi.supplier =@supplier, tpi.barcode =@barcode, tpi.barcode2 =@barcode2, tpi.barcode3 =@barcode3, tpi.buy = @buy, tpi.get = @get, tpi.dateExp = @dateExp, tpi.isPrint = @isprint WHERE tpi.ID =@itemCode;";
                         MySqlCommand cmd = new MySqlCommand(sql, con);
                         cmd.Parameters.Add("@itemCode", prodInfo.ItemCode);
                         cmd.Parameters.Add("@itemName", prodInfo.ItemName);
@@ -449,7 +461,12 @@ namespace SmartPOS.Forms.SupperMarketForms
                         cmd.Parameters.Add("@wholPrice", prodInfo.WholesalePrice);
                         cmd.Parameters.Add("@buyingCost", prodInfo.BuyingCost);
                         cmd.Parameters.Add("@category", prodInfo.Category);
+                        cmd.Parameters.Add("@subCategory", prodInfo.SubCategory);
                         cmd.Parameters.Add("@supplier", prodInfo.Supplier);
+                        cmd.Parameters.Add("@buy", prodInfo.Buy);
+                        cmd.Parameters.Add("@get", prodInfo.Get);
+                        cmd.Parameters.Add("@dateExp", prodInfo.DateExp);
+                        cmd.Parameters.Add("@isprint", Convert.ToInt32(prodInfo.Isprint));
                         cmd.ExecuteNonQuery();
                         IsTrue = true;
                     }
@@ -498,6 +515,13 @@ namespace SmartPOS.Forms.SupperMarketForms
                 MessageBox.Show(e.Message);
             }
             return Supp;
+        }
+
+        internal DataTable GetAllSubCategory(object p)
+        {
+            string sql = "SELECT tpisc.ID,tpisc.SubCategoryName FROM tbl_pos_item_sub_category tpisc WHERE tpisc.CategoryID = '" + p + "';";
+            DataTable dt = FillDataSet(sql).Tables[0];
+            return dt;
         }
     }
 }

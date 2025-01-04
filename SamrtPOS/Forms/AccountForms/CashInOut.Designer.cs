@@ -59,9 +59,10 @@
             this.FooterPanel.Controls.Add(this.btnClearAll);
             this.FooterPanel.Controls.Add(this.btnSave);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FooterPanel.Location = new System.Drawing.Point(3, 340);
+            this.FooterPanel.Location = new System.Drawing.Point(4, 419);
+            this.FooterPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FooterPanel.Name = "FooterPanel";
-            this.FooterPanel.Size = new System.Drawing.Size(454, 64);
+            this.FooterPanel.Size = new System.Drawing.Size(605, 78);
             this.FooterPanel.TabIndex = 2;
             // 
             // btnClearAll
@@ -70,9 +71,10 @@
             this.btnClearAll.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearAll.Image = ((System.Drawing.Image)(resources.GetObject("btnClearAll.Image")));
             this.btnClearAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClearAll.Location = new System.Drawing.Point(340, 13);
+            this.btnClearAll.Location = new System.Drawing.Point(453, 16);
+            this.btnClearAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(110, 42);
+            this.btnClearAll.Size = new System.Drawing.Size(147, 52);
             this.btnClearAll.TabIndex = 58;
             this.btnClearAll.Text = "Clear";
             this.btnClearAll.UseVisualStyleBackColor = true;
@@ -84,9 +86,10 @@
             this.btnSave.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = global::SmartPOS.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(226, 13);
+            this.btnSave.Location = new System.Drawing.Point(301, 16);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(110, 42);
+            this.btnSave.Size = new System.Drawing.Size(147, 52);
             this.btnSave.TabIndex = 57;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -97,9 +100,10 @@
             // 
             this.lblHeadText.AutoSize = true;
             this.lblHeadText.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeadText.Location = new System.Drawing.Point(3, 14);
+            this.lblHeadText.Location = new System.Drawing.Point(4, 17);
+            this.lblHeadText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeadText.Name = "lblHeadText";
-            this.lblHeadText.Size = new System.Drawing.Size(147, 30);
+            this.lblHeadText.Size = new System.Drawing.Size(190, 38);
             this.lblHeadText.TabIndex = 38;
             this.lblHeadText.Text = "Cash In Out";
             // 
@@ -109,18 +113,20 @@
             this.HeaderPanel.Controls.Add(this.lblHeadText);
             this.HeaderPanel.Controls.Add(this.BtnClose);
             this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HeaderPanel.Location = new System.Drawing.Point(3, 3);
+            this.HeaderPanel.Location = new System.Drawing.Point(4, 4);
+            this.HeaderPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(454, 64);
+            this.HeaderPanel.Size = new System.Drawing.Size(605, 78);
             this.HeaderPanel.TabIndex = 1;
             // 
             // BtnClose
             // 
             this.BtnClose.AutoSize = true;
             this.BtnClose.Image = global::SmartPOS.Properties.Resources.imgClose32;
-            this.BtnClose.Location = new System.Drawing.Point(407, 13);
+            this.BtnClose.Location = new System.Drawing.Point(543, 16);
+            this.BtnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(38, 38);
+            this.BtnClose.Size = new System.Drawing.Size(51, 47);
             this.BtnClose.TabIndex = 37;
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
@@ -130,9 +136,10 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 73);
+            this.panel2.Location = new System.Drawing.Point(4, 90);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(454, 261);
+            this.panel2.Size = new System.Drawing.Size(605, 321);
             this.panel2.TabIndex = 0;
             // 
             // panel1
@@ -145,17 +152,19 @@
             this.panel1.Controls.Add(this.lblAmount);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(454, 261);
+            this.panel1.Size = new System.Drawing.Size(605, 321);
             this.panel1.TabIndex = 0;
             // 
             // txtDescri
             // 
             this.txtDescri.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescri.Location = new System.Drawing.Point(137, 105);
+            this.txtDescri.Location = new System.Drawing.Point(183, 129);
+            this.txtDescri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDescri.Multiline = true;
             this.txtDescri.Name = "txtDescri";
-            this.txtDescri.Size = new System.Drawing.Size(296, 139);
+            this.txtDescri.Size = new System.Drawing.Size(393, 170);
             this.txtDescri.TabIndex = 67;
             this.txtDescri.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescri_KeyDown);
             // 
@@ -163,9 +172,10 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(25, 108);
+            this.label11.Location = new System.Drawing.Point(33, 133);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(106, 23);
+            this.label11.Size = new System.Drawing.Size(133, 29);
             this.label11.TabIndex = 66;
             this.label11.Text = "Description :";
             // 
@@ -178,28 +188,32 @@
             this.cmbInOut.Items.AddRange(new object[] {
             "Cash IN",
             "Cash Out"});
-            this.cmbInOut.Location = new System.Drawing.Point(137, 65);
+            this.cmbInOut.Location = new System.Drawing.Point(183, 80);
+            this.cmbInOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbInOut.Name = "cmbInOut";
-            this.cmbInOut.Size = new System.Drawing.Size(165, 31);
+            this.cmbInOut.Size = new System.Drawing.Size(219, 37);
             this.cmbInOut.TabIndex = 65;
+            this.cmbInOut.Text = "-Select-";
             this.cmbInOut.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbInOut_KeyDown);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(47, 68);
+            this.label17.Location = new System.Drawing.Point(63, 84);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(84, 23);
+            this.label17.Size = new System.Drawing.Size(106, 29);
             this.label17.TabIndex = 64;
             this.label17.Text = "In or Out :";
             // 
             // txtPayAmt
             // 
             this.txtPayAmt.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPayAmt.Location = new System.Drawing.Point(137, 25);
+            this.txtPayAmt.Location = new System.Drawing.Point(183, 31);
+            this.txtPayAmt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPayAmt.Name = "txtPayAmt";
-            this.txtPayAmt.Size = new System.Drawing.Size(165, 29);
+            this.txtPayAmt.Size = new System.Drawing.Size(219, 35);
             this.txtPayAmt.TabIndex = 60;
             this.txtPayAmt.Text = "0.00";
             this.txtPayAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -210,9 +224,10 @@
             // 
             this.lblAmount.AutoSize = true;
             this.lblAmount.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmount.Location = new System.Drawing.Point(52, 28);
+            this.lblAmount.Location = new System.Drawing.Point(69, 34);
+            this.lblAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(79, 23);
+            this.lblAmount.Size = new System.Drawing.Size(100, 29);
             this.lblAmount.TabIndex = 63;
             this.lblAmount.Text = "Amount :";
             this.lblAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -227,12 +242,13 @@
             this.tableLayoutPanel1.Controls.Add(this.FooterPanel, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(460, 407);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(613, 501);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // MainPanel
@@ -241,18 +257,20 @@
             this.MainPanel.Controls.Add(this.tableLayoutPanel1);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(460, 407);
+            this.MainPanel.Size = new System.Drawing.Size(613, 501);
             this.MainPanel.TabIndex = 1;
             // 
             // CashInOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 407);
+            this.ClientSize = new System.Drawing.Size(613, 501);
             this.ControlBox = false;
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CashInOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.CashInOut_Load);

@@ -121,5 +121,18 @@ namespace SmartPOS.Forms
                 this.Close();
             }
         }
+
+        private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(Program.ServerName == "localhost")
+            {
+                Backup backup = new Backup();
+                backup.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Backup can only be accessed from the server computer.");
+            }
+        }
     }
 }

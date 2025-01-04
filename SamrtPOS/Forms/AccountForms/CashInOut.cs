@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using CrystalDecisions.Windows.Forms;
+using MySql.Data.MySqlClient;
 using SmartPOS.Controler;
 using SmartPOS.Forms.BarCodeForms;
 using System;
@@ -68,6 +69,7 @@ namespace SmartPOS.Forms.AccountForms
                             if (cashBookCont.SaveCashbook("CashIN", decimal.Parse(txtPayAmt.Text.ToString()), txtDescri.Text.Trim().ToString()))
                             {
                                 MessageBox.Show("Successfull Cash In");
+                                printBill();
                                 this.Close();
                             }
                         }
@@ -76,6 +78,7 @@ namespace SmartPOS.Forms.AccountForms
                             if (cashBookCont.SaveCashbook("CashOUT", decimal.Parse(txtPayAmt.Text.ToString()), txtDescri.Text.Trim().ToString()))
                             {
                                 MessageBox.Show("Successfull Cash Out");
+                                printBill();
                                 this.Close();
                             }
                         }
@@ -100,6 +103,42 @@ namespace SmartPOS.Forms.AccountForms
             {
                 MessageBox.Show("Required Amount");
             }
+        }
+
+        private void printBill()
+        {
+            PrintDialog p = new PrintDialog();
+            CrystalReportViewer viever = new CrystalReportViewer();
+            CashInOutBill cashInOutBill = new CashInOutBill();
+            if (cmbInOut.SelectedIndex == 0)
+            {
+                cashInOutBill.SetParameterValue("CashInOut", "Cash In");
+            }
+            else
+            {
+                cashInOutBill.SetParameterValue("CashInOut", "Cash Out");
+            }   
+            cashInOutBill.SetParameterValue("User", Program.userDetails.UseryName);
+            cashInOutBill.SetParameterValue("Amount", txtPayAmt.Text);
+            cashInOutBill.SetParameterValue("Decription", txtDescri.Text);
+
+            viever.ReportSource = cashInOutBill;
+            string Papersize = Program.printerInfo.POSpaperSize;
+            int rawKind = 0;
+            for (int i = 0; i <= p.PrinterSettings.PaperSizes.Count - 1; i++)
+            {
+                if (p.PrinterSettings.PaperSizes[i].ToString() == Papersize) // "LXP : Your Page Size"
+                {
+                    rawKind = Convert.ToInt32(p.PrinterSettings.PaperSizes[i].GetType().GetField
+                        ("kind",
+                    System.Reflection.BindingFlags.Instance |
+                    System.Reflection.BindingFlags.NonPublic).GetValue(p.PrinterSettings.PaperSizes[i]));
+                    break;
+                }
+            }
+            cashInOutBill.PrintOptions.PrinterName = Program.printerInfo.POSprinterName;
+            cashInOutBill.PrintOptions.PaperSize = (CrystalDecisions.Shared.PaperSize)rawKind;
+            cashInOutBill.PrintToPrinter(1, true, 1, 100);
         }
 
         private void txtPayAmt_TextChanged(object sender, EventArgs e)

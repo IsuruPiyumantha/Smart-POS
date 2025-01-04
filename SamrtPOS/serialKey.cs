@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using SmartPOS.Controler;
 using SmartPOS.Forms.ItemsForms;
+using SmartPOS.Forms.SettingsForms;
 using SmartPOS.Forms.UserForms;
 using System;
 using System.Collections.Generic;
@@ -131,6 +132,17 @@ namespace SmartPOS
                 }
             }
             BtnClose_KeyDown(sender, e);
+        }
+
+        private void lblHeadText_DoubleClick(object sender, EventArgs e)
+        {
+            Password password = new Password();
+            password.ShowDialog();
+            if (password.GetFinalState() == true)
+            {
+                GetSerialKey skey = new GetSerialKey();
+                skey.ShowDialog();
+            }
         }
     }
 }

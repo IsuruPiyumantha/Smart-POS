@@ -70,6 +70,58 @@ namespace SmartPOS.Controler
             return true;
         }
 
+        public BackupInfo GetBacupData()
+        {
+            BackupInfo backupData = new BackupInfo();
+            conString = Program.ConnectionString.ToString();
+            con = new MySqlConnection(conString);
+            string sqlUser = "";
+
+            try
+            {
+                if (con.State.ToString() != "Open")
+                {
+                    con.Open();
+
+                    if (con != null)
+                    {
+                        sqlUser = "SELECT * FROM tbl_pos_backup tpb;";
+                        MySqlDataAdapter da = new MySqlDataAdapter(sqlUser, con);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds, "userDT");
+                        DataTable dt1 = ds.Tables["userDT"];
+
+                        if (dt1.Rows.Count > 0)
+                        {
+                            foreach (DataRow r in dt1.Rows)
+                            {
+                                backupData.BackupTime = r["BackupTime"].ToString();
+                                backupData.BackupPath = r["Path"].ToString();
+                            }
+                        }
+                        else
+                        {
+                            ErrorForm errorFrm = new ErrorForm("No Rows", sqlUser);
+                            errorFrm.ShowDialog();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorForm errorFrm = new ErrorForm(ex.Message, sqlUser);
+                errorFrm.ShowDialog();
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return backupData;
+        }
+
         public string convertDateTime(DateTime d)
         {
             string format_date = null;

@@ -145,6 +145,23 @@ namespace SmartPOS.Forms.ItemsForms
                         MessageBox.Show("You can't access.");
                     }
                 }
+                else if (e.ColumnIndex == this.SubCategory.Index)
+                {
+                    if (comFuntion.CheckPermission(Program.userDetails.JobRole, 19))
+                    {
+                        string x = gridDataDetails.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+                        string y = gridDataDetails.Rows[e.RowIndex].Cells["CategoryName"].Value.ToString();
+
+                        SubCategoryList subCategoryList = new SubCategoryList(x,y);
+                        subCategoryList.ShowDialog();
+                        gridDataDetails.DataSource = null;
+                        this.AllItemsDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You can't access.");
+                    }
+                }
             }
         }
 

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSetting.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7k
         vQV0HEe7rus4seM45HDiJI7jOIntmFEGkS1LZmZmZmZmi5mZzMzMjGIyc/jPj/vsc9/7ftXTo9aoJcuB
@@ -2779,7 +2779,7 @@
         lhWYrMTt8XvnvQnPaZ/cnjB3XXTRlm9frvnY/51+nnnm/wc6WCgNnOBQaQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btn_catg.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCategory.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7U
         /QdUHVmWrY3WG+ON8Y//vXu7b3fdNtWuuiqrKjMrvU+lvPcGSSBA3nuPkMMJhPcIYYV3wnvvPQgnAfJe
@@ -14155,7 +14155,7 @@
         j0nA1b72OIY/+JPfZT31t/tmPY1/M6DatPl/AApWLCtvDAZ7AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnSearchStock.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAccount.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         nQV4VFm2trnz37kj9471zLS7u3fTRrt7Ny5xRRKSENxpaOiGhsbdIUiAEOLuuEsg7u44bd+/1jq1q05O
@@ -16106,7 +16106,7 @@
         Z6Kr/wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnOrder.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         /WV4Xdfd7Q3nw3O9z/Plfc917nPOc7dNbDHurS0GC8zMnJhiTBxyuG2alO60aVJu0zZpwMwgJtsyM8my
@@ -19446,7 +19446,7 @@
         tKQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnContact.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnProsuct.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         nQV4Flf2/9ndbt1baIsUaKEtheLu7u7u7oQYcXd3F+LungDBgwVISIgbcSG49/s/505eCJTub7e/33+7
@@ -25123,4 +25123,7 @@
         DKywhe2Laynv/FyFx3+lng//asvdv/pf+Ver/v+hv0GD/j+92vf63aDZYwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

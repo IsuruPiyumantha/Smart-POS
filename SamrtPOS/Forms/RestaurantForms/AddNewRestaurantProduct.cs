@@ -104,7 +104,6 @@ namespace SmartPOS.Forms.RestaurantForms
             txtBarCode.Text = "";
             txtBuyingCost.Text = "";
             txtLabledPrice.Text = "";
-            BarCodeGridView = null;
             txtSupplier.SelectedIndex = 0;
             combCategory.SelectedIndex = 0;
             combUnit.SelectedIndex = 0;

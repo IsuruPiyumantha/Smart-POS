@@ -33,6 +33,7 @@
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.BtnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabel8 = new System.Windows.Forms.LinkLabel();
             this.linkLabel7 = new System.Windows.Forms.LinkLabel();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
@@ -55,18 +56,20 @@
             // 
             this.FooterPanel.BackColor = System.Drawing.Color.White;
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FooterPanel.Location = new System.Drawing.Point(3, 501);
+            this.FooterPanel.Location = new System.Drawing.Point(4, 617);
+            this.FooterPanel.Margin = new System.Windows.Forms.Padding(4);
             this.FooterPanel.Name = "FooterPanel";
-            this.FooterPanel.Size = new System.Drawing.Size(832, 50);
+            this.FooterPanel.Size = new System.Drawing.Size(1109, 61);
             this.FooterPanel.TabIndex = 2;
             // 
             // lblHeadText
             // 
             this.lblHeadText.AutoSize = true;
             this.lblHeadText.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeadText.Location = new System.Drawing.Point(3, 7);
+            this.lblHeadText.Location = new System.Drawing.Point(4, 9);
+            this.lblHeadText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeadText.Name = "lblHeadText";
-            this.lblHeadText.Size = new System.Drawing.Size(95, 30);
+            this.lblHeadText.Size = new System.Drawing.Size(124, 38);
             this.lblHeadText.TabIndex = 38;
             this.lblHeadText.Text = "Setting";
             // 
@@ -76,18 +79,20 @@
             this.HeaderPanel.Controls.Add(this.lblHeadText);
             this.HeaderPanel.Controls.Add(this.BtnClose);
             this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HeaderPanel.Location = new System.Drawing.Point(3, 3);
+            this.HeaderPanel.Location = new System.Drawing.Point(4, 4);
+            this.HeaderPanel.Margin = new System.Windows.Forms.Padding(4);
             this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(832, 49);
+            this.HeaderPanel.Size = new System.Drawing.Size(1109, 60);
             this.HeaderPanel.TabIndex = 1;
             // 
             // BtnClose
             // 
             this.BtnClose.AutoSize = true;
             this.BtnClose.Image = global::SmartPOS.Properties.Resources.imgClose32;
-            this.BtnClose.Location = new System.Drawing.Point(791, 6);
+            this.BtnClose.Location = new System.Drawing.Point(1055, 7);
+            this.BtnClose.Margin = new System.Windows.Forms.Padding(4);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(38, 38);
+            this.BtnClose.Size = new System.Drawing.Size(51, 47);
             this.BtnClose.TabIndex = 37;
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
@@ -96,6 +101,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.linkLabel8);
             this.panel2.Controls.Add(this.linkLabel7);
             this.panel2.Controls.Add(this.linkLabel6);
             this.panel2.Controls.Add(this.linkLabel5);
@@ -105,18 +111,33 @@
             this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.linkLabelChages);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 58);
+            this.panel2.Location = new System.Drawing.Point(4, 72);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(832, 437);
+            this.panel2.Size = new System.Drawing.Size(1109, 537);
             this.panel2.TabIndex = 0;
+            // 
+            // linkLabel8
+            // 
+            this.linkLabel8.AutoSize = true;
+            this.linkLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel8.Location = new System.Drawing.Point(25, 371);
+            this.linkLabel8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabel8.Name = "linkLabel8";
+            this.linkLabel8.Size = new System.Drawing.Size(82, 25);
+            this.linkLabel8.TabIndex = 8;
+            this.linkLabel8.TabStop = true;
+            this.linkLabel8.Text = "BachUp";
+            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
             // 
             // linkLabel7
             // 
             this.linkLabel7.AutoSize = true;
             this.linkLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel7.Location = new System.Drawing.Point(19, 267);
+            this.linkLabel7.Location = new System.Drawing.Point(25, 329);
+            this.linkLabel7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel7.Name = "linkLabel7";
-            this.linkLabel7.Size = new System.Drawing.Size(118, 20);
+            this.linkLabel7.Size = new System.Drawing.Size(144, 25);
             this.linkLabel7.TabIndex = 7;
             this.linkLabel7.TabStop = true;
             this.linkLabel7.Text = "Printer Settings";
@@ -126,9 +147,10 @@
             // 
             this.linkLabel6.AutoSize = true;
             this.linkLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel6.Location = new System.Drawing.Point(19, 230);
+            this.linkLabel6.Location = new System.Drawing.Point(25, 283);
+            this.linkLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(117, 20);
+            this.linkLabel6.Size = new System.Drawing.Size(143, 25);
             this.linkLabel6.TabIndex = 6;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Text = "Printing Setting";
@@ -138,9 +160,10 @@
             // 
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel5.Location = new System.Drawing.Point(19, 196);
+            this.linkLabel5.Location = new System.Drawing.Point(25, 241);
+            this.linkLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(83, 20);
+            this.linkLabel5.Size = new System.Drawing.Size(104, 25);
             this.linkLabel5.TabIndex = 5;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "Set Colors";
@@ -150,9 +173,10 @@
             // 
             this.linkLabel4.AutoSize = true;
             this.linkLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel4.Location = new System.Drawing.Point(19, 158);
+            this.linkLabel4.Location = new System.Drawing.Point(25, 194);
+            this.linkLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(103, 20);
+            this.linkLabel4.Size = new System.Drawing.Size(127, 25);
             this.linkLabel4.TabIndex = 4;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "Job Role Mgt";
@@ -162,9 +186,10 @@
             // 
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.Location = new System.Drawing.Point(19, 123);
+            this.linkLabel3.Location = new System.Drawing.Point(25, 151);
+            this.linkLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(186, 20);
+            this.linkLabel3.Size = new System.Drawing.Size(229, 25);
             this.linkLabel3.TabIndex = 3;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "Update Company Details";
@@ -174,9 +199,10 @@
             // 
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(19, 88);
+            this.linkLabel2.Location = new System.Drawing.Point(25, 108);
+            this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(85, 20);
+            this.linkLabel2.Size = new System.Drawing.Size(105, 25);
             this.linkLabel2.TabIndex = 2;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Clear Data";
@@ -186,9 +212,10 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(19, 53);
+            this.linkLabel1.Location = new System.Drawing.Point(25, 65);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(99, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(123, 25);
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Scale Export";
@@ -198,9 +225,10 @@
             // 
             this.linkLabelChages.AutoSize = true;
             this.linkLabelChages.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelChages.Location = new System.Drawing.Point(19, 18);
+            this.linkLabelChages.Location = new System.Drawing.Point(25, 22);
+            this.linkLabelChages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabelChages.Name = "linkLabelChages";
-            this.linkLabelChages.Size = new System.Drawing.Size(69, 20);
+            this.linkLabelChages.Size = new System.Drawing.Size(87, 25);
             this.linkLabelChages.TabIndex = 0;
             this.linkLabelChages.TabStop = true;
             this.linkLabelChages.Text = "Charges";
@@ -216,12 +244,13 @@
             this.tableLayoutPanel1.Controls.Add(this.FooterPanel, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(838, 554);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1117, 682);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // MainPanel
@@ -230,8 +259,9 @@
             this.MainPanel.Controls.Add(this.tableLayoutPanel1);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(838, 554);
+            this.MainPanel.Size = new System.Drawing.Size(1117, 682);
             this.MainPanel.TabIndex = 1;
             // 
             // fileSystemWatcher1
@@ -241,12 +271,13 @@
             // 
             // Setting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 554);
+            this.ClientSize = new System.Drawing.Size(1117, 682);
             this.ControlBox = false;
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Setting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.HeaderPanel.ResumeLayout(false);
@@ -278,5 +309,6 @@
         private System.Windows.Forms.LinkLabel linkLabel5;
         private System.Windows.Forms.LinkLabel linkLabel6;
         private System.Windows.Forms.LinkLabel linkLabel7;
+        private System.Windows.Forms.LinkLabel linkLabel8;
     }
 }
